@@ -15,50 +15,20 @@ router.get('/', function (req, res, next) {
 /* GET schedule page. */
 router.get('/:user', async function (req, res, next) {
   var lowerCaseUserName = req.params.user.toLowerCase();
+
   function jsUcfirst(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
   var name = jsUcfirst(req.params.user);
   var userInfo = [];
   base('Users').select({
-    maxRecords: 1,
     filterByFormula: '{Username} = "' + lowerCaseUserName + '"'
   }).eachPage(function page(records, fetchNextPage) {
     records.forEach(function (record) {
       userInfo.push({
-        name: name,
-        p1: {
-          name: record.get('Period 1 Name'),
-          link: record.get('Period 1 Link')
-        },
-        p2: {
-          name: record.get('Period 2 Name'),
-          link: record.get('Period 2 Link')
-        },
-        p3: {
-          name: record.get('Period 3 Name'),
-          link: record.get('Period 3 Link')
-        },
-        p4: {
-          name: record.get('Period 4 Name'),
-          link: record.get('Period 4 Link')
-        },
-        p5: {
-          name: record.get('Period 5 Name'),
-          link: record.get('Period 5 Link')
-        },
-        p6: {
-          name: record.get('Period 6 Name'),
-          link: record.get('Period 6 Link')
-        },
-        p7: {
-          name: record.get('Period 7 Name'),
-          link: record.get('Period 7 Link')
-        },
-        p8: {
-          name: record.get('Period 8 Name'),
-          link: record.get('Period 8 Link')
-        }
+        label: record.get('Label')[0],
+        name: record.get('Name'),
+        link: record.get('Link')
       });
     });
     fetchNextPage();
@@ -72,10 +42,30 @@ router.get('/:user', async function (req, res, next) {
         title: '404'
       });
     }
+    //var labelArr = [1, 2, 3, 4, 5, 6, 7, 8, 0, 'Extracurricular']
+    /*
+    var result = userInfo.sort(function(a, b){  
+      return 10 - userInfo.label[0].splice(1, -1);
+    });*/
+    let sorting = ['0', '1', '2', '3', '4', '5', '6', '7', '8', 'Extracurricular'];
+    let result = [];
+
+    sorting.forEach(function (key) {
+      var found = false;
+      userInfo = userInfo.filter(function (item) {
+        if (!found && item.label == key) {
+          result.push(item);
+          found = true;
+          return false;
+        } else
+          return true;
+      })
+    })
     res.render('schedule', {
-    title: 'Zoom Dashboard',
-    user: userInfo[0]
-  });
+      title: 'Zoom Dashboard',
+      name: name,
+      user: result
+    });
   });
 });
 

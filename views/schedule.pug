@@ -1,29 +1,46 @@
 extends layout
 
 block content
-  h1.welcome Hey, #{user.name}!
+  h1.welcome Hey, #{name}!
   .grid-container
-    a.widget.first(href=user.p1.link)
-      h4.period 1
-      h1= user.p1.name
-    a.widget.second(href=user.p2.link)
-      h4.period 2
-      h1= user.p2.name
-    a.widget.third(href=user.p3.link)
-      h4.period 3
-      h1= user.p3.name
-    a.widget.fourth(href=user.p4.link)
-      h4.period 4
-      h1= user.p4.name
-    a.widget.fifth(href=user.p5.link)
-      h4.period 5
-      h1= user.p5.name
-    a.widget.sixth(href=user.p6.link)
-      h4.period 6
-      h1= user.p6.name
-    a.widget.seventh(href=user.p7.link)
-      h4.period 7
-      h1= user.p7.name
-    a.widget.eight(href=user.p8.link)
-      h4.period 8
-      h1= user.p8.name
+    each link in user
+      if link.label === '1'
+        a.widget.first(href=link.link)
+          h4.label= link.label
+          h1=link.name
+      if link.label === '2'
+        a.widget.second(href=link.link)
+          h4.label= link.label
+          h1=link.name
+      if link.label === '3'
+        a.widget.third(href=link.link)
+          h4.label= link.label
+          h1=link.name
+      if link.label === '4'
+        a.widget.fourth(href=link.link)
+          h4.label= link.label
+          h1=link.name
+      if link.label === '5'
+        a.widget.fifth(href=link.link)
+          h4.label= link.label
+          h1=link.name
+      if link.label === '6'
+        a.widget.sixth(href=link.link)
+          h4.label= link.label
+          h1=link.name
+      if link.label === '7'
+        a.widget.seventh(href=link.link)
+          h4.label= link.label
+          h1=link.name
+      if link.label === '8'
+        a.widget.eighth(href=link.link)
+          h4.label= link.label
+          h1=link.name
+      if link.label === '0'
+        a.widget.zero(href=link.link)
+          h4.label= link.label
+          h1=link.name
+      if link.label === 'Extracurricular'
+        a.widget.ec(href=link.link)
+          h4.label EC
+          h1=link.name
