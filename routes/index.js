@@ -47,7 +47,6 @@ router.get('/:user', async function (req, res, next) {
     let result = [];
     const sortingArray = sorting.split(" ");
     sortingArray.forEach(function (key) {
-      console.log(key);
       var found = false;
       userInfo = userInfo.filter(function (item) {
         if (!found && item.label == key) {
