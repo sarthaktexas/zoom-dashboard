@@ -12,7 +12,7 @@ p {
   color: black;
 }
 
-.period {
+.label {
   position: absolute;
   float: left;
 }
@@ -61,6 +61,9 @@ a:hover {
   .welcome {
     color: black;
   }
+  .ec {
+    border: black 1px solid;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -69,6 +72,9 @@ a:hover {
   }
   .welcome {
     color: white;
+  }
+  .zero {
+    border: white 1px solid;
   }
 }
 
@@ -126,6 +132,20 @@ a:hover {
   background: palevioletred;
 }
 
-.eight {
+.eighth {
   background: gray;
+}
+
+.zero {
+  background: black;
+  color: white;
+}
+
+.zero h1, .zero .label {
+  color: white;
+}
+
+.ec {
+  background: white;
+  background-image: url('https://www.pngonly.com/wp-content/uploads/2017/06/down-confetti-png-10212.png');
 }
