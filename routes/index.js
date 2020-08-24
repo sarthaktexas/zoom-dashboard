@@ -7,9 +7,7 @@ var base = new Airtable({
 }).base('app8QjouUFj52x382');
 
 router.get('/', function (req, res, next) {
-  res.render('index', {
-    title: "Signup"
-  });
+  res.redirect('https://airtable.com/shrJwmITYNLzGihhS?prefill_Sorting=1%202%203%204%205%206%207%208');
 });
 
 /* GET schedule page. */
