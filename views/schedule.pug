@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  h1.welcome Hey, #{user.name}!
+  .grid-container
+    a.widget.first(href=user.p1.link)
+      h4.period 1
+      h1= user.p1.name
+    a.widget.second(href=user.p2.link)
+      h4.period 2
+      h1= user.p2.name
+    a.widget.third(href=user.p3.link)
+      h4.period 3
+      h1= user.p3.name
+    a.widget.fourth(href=user.p4.link)
+      h4.period 4
+      h1= user.p4.name
+    a.widget.fifth(href=user.p5.link)
+      h4.period 5
+      h1= user.p5.name
+    a.widget.sixth(href=user.p6.link)
+      h4.period 6
+      h1= user.p6.name
+    a.widget.seventh(href=user.p7.link)
+      h4.period 7
+      h1= user.p7.name
+    a.widget.eight(href=user.p8.link)
+      h4.period 8
+      h1= user.p8.name
