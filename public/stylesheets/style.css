@@ -87,11 +87,11 @@ a:hover {
 .widget {
   display: inline-block;
   width: 200px;
-  height: 120px;
+  max-height: 120px;
   margin: 10px;
   padding: 20px;
   border-radius: 20px;
-  //overflow-y: scroll;
+  /*overflow-y: scroll;*/
   transition: transform .2s;
 }
 
