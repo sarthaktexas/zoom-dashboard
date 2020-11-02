@@ -91,7 +91,7 @@ a:hover {
   margin: 10px;
   padding: 20px;
   border-radius: 20px;
-  overflow-y: scroll;
+  //overflow-y: scroll;
   transition: transform .2s;
 }
 
