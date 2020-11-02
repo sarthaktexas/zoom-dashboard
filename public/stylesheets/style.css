@@ -87,7 +87,7 @@ a:hover {
 .widget {
   display: inline-block;
   width: 200px;
-  max-height: 120px;
+  min-height: 120px;
   margin: 10px;
   padding: 20px;
   border-radius: 20px;
